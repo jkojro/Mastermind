@@ -1,5 +1,7 @@
 require "bundler/setup"
 require "Mastermind"
+require 'rspec/collection_matchers'
+
 
 require_relative "../lib/mastermind.rb"
 
