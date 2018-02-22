@@ -45,16 +45,15 @@ module Mastermind
 			[red, white]
 		end
 
-		def game_over
-			return :winner if winner?
-			return :game_status if !winner?
+		def game_over?
+			hidden_row == grid.last
 		end
 
 
 
 
 		def winner?
-			hidden_row == grid.last
+			
 		end
 
 		def correct_position(hidden, row)
