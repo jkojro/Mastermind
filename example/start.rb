@@ -3,4 +3,4 @@ require "#{root}/lib/mastermind.rb"
 
 puts "Witam w grze Mastermind"
 
-
+Mastermind::Game.new.play

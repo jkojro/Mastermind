@@ -2,10 +2,10 @@ module Mastermind
 	class Big_board
 		attr_accessor :grid, :hidden_row
 
-		def initialize(hidden_row = Board.new, grid = Array.new)
+		def initialize(row = Board.new, grid = Array.new)
 			@grid = grid
-			@hidden_row = hidden_row
-			@hidden_row.set_hidden_row
+			@row = hidden_row
+			@hidden_row = row.set_hidden_row
 			@colors = Array.new
 			@colors  = ["Y", "B", "G", "R", "P", "O"]
 		end
@@ -17,10 +17,10 @@ module Mastermind
 		def print_status
 			i = 0
 			while i < grid.length
-				print_row_status(i)
+				puts print_row_status(i)
 				i += 1
 			end
-			message
+			#message
 		end
 
 		def game_status
@@ -33,6 +33,12 @@ module Mastermind
 		end
 
 		def print_row_status(i)
+			red = game_status[i][0]
+			white = game_status[i][1]
+			message = "#{grid[i]} -> #{red} na swoim miejscu i #{white} nie na swoim miejscu" 
+		end
+
+		def print_row_status_i(i)
 			red = game_status[i][0]
 			white = game_status[i][1]
 			message = "#{grid[i]} -> #{red} na swoim miejscu i #{white} nie na swoim miejscu" 

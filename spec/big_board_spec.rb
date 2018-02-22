@@ -96,12 +96,12 @@ module Mastermind
 		context "#print_row_status" do
 			it "prints moves and their status" do
 				big_board = Big_board.new
-				big_board.hidden_row = ["Y", "B", "B", "R"]
-				row1 = ["Y", "B", "B", "R"]
+				#big_board.hidden_row = ["Y", "B", "B", "R"]
+				row1 = ["A", "A", "A", "A"]
 				row2 = ["Y", "G", "G", "B"]
 				big_board.add_row(row1)
 				big_board.add_row(row2)
-				expected = "["Y", "B", "B", "R"] -> 4 na swoim miejscu i 0 nie na swoim miejscu"
+				expected = "[A, A, A, A] -> 0 na swoim miejscu i 0 nie na swoim miejscu"
 				expect(big_board.print_row_status(0)).to eq expected
 			end
 		end

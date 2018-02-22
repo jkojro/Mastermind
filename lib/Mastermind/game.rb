@@ -13,15 +13,24 @@ module Mastermind
 			move = raw_move.split(//)
 		end
 
-		def print_status
-			i = 0
-			while i < big_board.grid.length
-				puts big_board.grid[i]
-				puts "#{big_board.game_status[i, 0]} na swoim miejscu i #{big_board.game_status[i, 1]} nie na swoim miejscu"
-				i += 1
+		
+
+		def play
+			puts "hidden_row: #{big_board.hidden_row.to_s}"
+			an = "y"
+			while an == "y"
+
+				puts info
+				move = get_move
+				big_board.add_row(move)
+				
+
+				big_board.print_status
+
+				puts "Dalej?"
+				an = gets.chomp
 			end
 		end
-
 	end
 end
 
