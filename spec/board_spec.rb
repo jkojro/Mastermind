@@ -60,7 +60,7 @@ module Mastermind
 				expect(hidden_board.int_to_letter[6]).to eq 'O'
 			end
 
-			it "creates a row with random numbers 1..6 as the cell's values" do	
+			it "creates a row with random letters as the cell's values" do	
 				hidden_board = Board.new
 				hidden_board.set_hidden_row
 				expect("YBGRPO").to include(hidden_board.get_cell(1).value)

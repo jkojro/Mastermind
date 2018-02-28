@@ -16,7 +16,7 @@ module Mastermind
 		
 
 		def play
-			puts "hidden_row: #{big_board.hidden_row.to_s}"
+			big_board.print_hidden_row
 			an = "y"
 			while an == "y"
 
@@ -25,7 +25,7 @@ module Mastermind
 				big_board.add_row(move)
 				
 
-				big_board.print_status
+				big_board.print_game_status
 
 				puts "Dalej?"
 				an = gets.chomp

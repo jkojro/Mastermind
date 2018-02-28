@@ -24,14 +24,10 @@ module Mastermind
 
 
 
-		
+		#private
 
 		def default_row
 			Array.new(4) {Cell.new}
-		end
-
-		def random_numbers
-			random_numbers = Array.new(4) {1..6}
 		end
 
 		def int_to_letter

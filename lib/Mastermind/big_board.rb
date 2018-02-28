@@ -23,63 +23,49 @@ module Mastermind
 			#message
 		end
 
-		def game_status
-			status = []
+		def print_game_status
 			grid.collect do |row|
-				hidden = hidden_row.clone
-				status << row_status(hidden, row)
+				puts print_row_status(row)
+
 			end
-			status
 		end
 
-		def print_row_status(i)
-			red = game_status[i][0]
-			white = game_status[i][1]
-			message = "#{grid[i]} -> #{red} na swoim miejscu i #{white} nie na swoim miejscu" 
+		def print_row_status(row)
+			row_status = row_status(hidden_row, row)
+			red = row_status[0]
+			white = row_status[1]
+			message = "#{row} -> #{red} na swoim miejscu i #{white} nie na swoim miejscu" 
 		end
 
-		def print_row_status_i(i)
-			red = game_status[i][0]
-			white = game_status[i][1]
-			message = "#{grid[i]} -> #{red} na swoim miejscu i #{white} nie na swoim miejscu" 
-		end
-
-
-		def row_status(hidden, row)
-			red = correct_position(hidden, row)
-			white = correct_color(hidden, row)
-			[red, white]
-		end
 
 		def game_over?
 			hidden_row == grid.last
 		end
 
-
-
-
 		def winner?
-			
 		end
 
-		def correct_position(hidden, row)
+		def row_status(hidden, row)
 			red = 0
 			(0..3).each do |index|
-				if hidden[index] == row[index]
+				if hidden.row[index].value == row[index]
 					red += 1
-					hidden[index] = "X"
-					row[index] = "X"
 				end
 			end
-			red
+			white_and_red = 0
+			@colors.each do |color|
+				cell = Cell.new('color')
+				white_and_red += [hidden.row.count(cell), row.count(cell)].min
+			end
+			white = white_and_red - red
+			[red, white]
 		end
 
-		def correct_color(hidden, row)
-			white = 0
-			@colors.each do |color|
-				white += [hidden.count(color), row.count(color)].min
+		def print_hidden_row
+			puts "hidden_row:"
+			hidden_row.row.each do |cell|
+				puts cell.value
 			end
-			white
 		end
 	end
 end
