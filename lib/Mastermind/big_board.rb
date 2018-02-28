@@ -2,10 +2,10 @@ module Mastermind
 	class Big_board
 		attr_accessor :grid, :hidden_row
 
-		def initialize(row = Board.new, grid = Array.new)
-			@grid = grid
-			@row = hidden_row
-			@hidden_row = row.set_hidden_row
+		def initialize
+			@grid = Array.new
+			@hidden_row = Board.new
+			@hidden_row.set_hidden_row
 			@colors = Array.new
 			@colors  = ["Y", "B", "G", "R", "P", "O"]
 		end

@@ -19,17 +19,12 @@ module Mastermind
 		end
 
 		def set_hidden_row
-			@row = Array.new(4) {Cell.new(rand(1..6))}
-
+			@row = Array.new(4) {Cell.new(int_to_letter[rand(1..6)])}
 		end
 
 
 
-
-
-
-
-		private
+		
 
 		def default_row
 			Array.new(4) {Cell.new}
@@ -37,6 +32,13 @@ module Mastermind
 
 		def random_numbers
 			random_numbers = Array.new(4) {1..6}
+		end
+
+		def int_to_letter
+			{
+				1 => 'Y', 2 => 'B', 3 => 'G',
+				4 => 'R', 5 => 'P', 6 => 'O'
+			}
 		end
 	end
 end

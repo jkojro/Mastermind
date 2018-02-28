@@ -54,12 +54,16 @@ module Mastermind
 		end
 
 		context "#set_hidden row" do
-			it "creates a row with random numbers 1..6 as the cell's values" do
-				
+			it "set int_to_letter" do
+				hidden_board = Board.new
+				expect(hidden_board.int_to_letter[1]).to eq 'Y'
+				expect(hidden_board.int_to_letter[6]).to eq 'O'
+			end
+
+			it "creates a row with random numbers 1..6 as the cell's values" do	
 				hidden_board = Board.new
 				hidden_board.set_hidden_row
-				expect(hidden_board.get_cell(3).value).to be <= 6
-				expect(hidden_board.get_cell(3).value).to be >= 1
+				expect("YBGRPO").to include(hidden_board.get_cell(1).value)
 			end
 		end
 	end
