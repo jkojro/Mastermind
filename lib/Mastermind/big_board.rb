@@ -54,8 +54,7 @@ module Mastermind
 			end
 			white_and_red = 0
 			@colors.each do |color|
-				cell = Cell.new('color')
-				white_and_red += [hidden.row.count(cell), row.count(cell)].min
+				white_and_red += [hidden.row.count { |cell| cell.value == color}, row.count(color)].min
 			end
 			white = white_and_red - red
 			[red, white]
