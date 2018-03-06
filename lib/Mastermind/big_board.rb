@@ -20,13 +20,11 @@ module Mastermind
 				puts print_row_status(i)
 				i += 1
 			end
-			#message
 		end
 
 		def print_game_status
 			grid.collect do |row|
 				puts print_row_status(row)
-
 			end
 		end
 
@@ -62,9 +60,9 @@ module Mastermind
 
 		def print_hidden_row
 			puts "hidden_row:"
-			hidden_row.row.each do |cell|
-				puts cell.value
-			end
+			putted_row = hidden_row.row.join(" ")
+				puts putted_row
+			
 		end
 	end
 end
